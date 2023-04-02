@@ -4,20 +4,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import styles from "./Navbar.module.scss";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { Router, Link } from "react-router-dom";
 
-const minWidthWindowSizeMobileTransition = 560
-const maxWidthWindowSizeMobileTransition = 640
+const minWidthWindowSizeMobileTransition = 560;
+const maxWidthWindowSizeMobileTransition = 640;
 
 const Navbar = () => {
   const [isHamburgerClicked, setClicked] = useState(false);
-  const [disableTransition, setDisableTransition] = useState(false); 
-
+  const [disableTransition, setDisableTransition] = useState(false);
 
   useEffect(() => {
     function resizeListener() {
       const { innerWidth: width }: { innerWidth: number } = window;
 
-      if (width >= minWidthWindowSizeMobileTransition && width <= maxWidthWindowSizeMobileTransition && isHamburgerClicked) {
+      if (
+        width >= minWidthWindowSizeMobileTransition &&
+        width <= maxWidthWindowSizeMobileTransition &&
+        isHamburgerClicked
+      ) {
         setDisableTransition(true);
         setTimeout(function () {
           setDisableTransition(false);
@@ -39,15 +43,15 @@ const Navbar = () => {
     navbarStyle = `${styles.nav__navbar} ${styles["nav__menu--visibility"]} ${styles["nav__menu--notransition"]}`;
   } else if (isHamburgerClicked) {
     navbarStyle = `${styles.nav__navbar} ${styles["nav__menu--visibility"]}`;
-  } 
+  }
 
   return (
     <nav className={styles.nav}>
       <div className={styles.nav__header}>
-        <a href="/#" className={styles.nav__logo}>
+        <Link to="/main" className={styles.nav__logo}>
           <NavbarLogo />
-        </a>
-        <a href="/#">Wizualizacja danych</a>
+        </Link>
+        <Link to="/main">Wizualizacja danych</Link>
       </div>
 
       <ul className={navbarStyle}>
