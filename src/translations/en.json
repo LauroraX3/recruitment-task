@@ -1,0 +1,11 @@
+{
+    "navbar": {
+        "title": "Data visualization",
+        "showAllDataMenu": "Show all data",
+        "addDataMenu": "Add data",
+        "languageOption": {
+            "en": "English",
+            "pl": "Polish"
+        }
+    }
+}

@@ -26,39 +26,36 @@
     font-weight: 800;
   }
 
-
-  .nav__header{
+  .nav__header {
     display: flex;
     align-items: center;
     margin-right: 15px;
     @include desktop-breakpoint {
       font-size: 1.5rem;
     }
-    
+
     @include tablet-breakpoint {
       font-size: 1.4rem;
     }
-    
+
     @include mobile-breakpoint {
       font-size: 1.2rem;
     }
 
-    .nav__logo{
-        margin-top: 10px;
-        margin-right: 20px;
+    .nav__logo {
+      margin-top: 10px;
+      margin-right: 20px;
     }
   }
 
   .nav__menu--visibility {
     @include tablet-breakpoint {
       transform: translateX(-400px);
-
     }
     @include mobile-breakpoint {
       transform: translateX(-700px);
     }
   }
-
 
   .nav__menu--notransition {
     transition: none !important;
@@ -115,19 +112,7 @@
       }
 
       a {
-        // text-decoration: none;
         font-weight: 600;
-        // color: $color-dark-turquoise;
-        //transition: 0.3s ease-in-out;
-        // @include desktop-breakpoint {
-        //   font-size: 1.5rem;
-        // }
-        // @include tablet-breakpoint {
-        //   font-size: 1.3rem;
-        // }
-        // @include mobile-breakpoint {
-        //   font-size: 1.2rem;
-        // }
 
         &:hover {
           color: $color-medium-turquoise;

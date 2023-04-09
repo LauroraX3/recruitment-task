@@ -5,11 +5,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Navbar.module.scss";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Router, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import Select from "react-select";
+import Language from "../../enums/Language";
 
 const minWidthWindowSizeMobileTransition = 560;
 const maxWidthWindowSizeMobileTransition = 640;
 
 const Navbar = () => {
+  const [t, i18n] = useTranslation();
+
+  const languageOptions = [
+    { value: Language.en, label: t("navbar.languageOption.en") },
+    { value: Language.pl, label: t("navbar.languageOption.pl") },
+  ];
+
+  const indexOfLastPickedLanguage = languageOptions
+    .map((e) => e.value)
+    .indexOf(Language[i18n.language as keyof typeof Language]);
+
   const [isHamburgerClicked, setClicked] = useState(false);
   const [disableTransition, setDisableTransition] = useState(false);
 
@@ -45,22 +59,55 @@ const Navbar = () => {
     navbarStyle = `${styles.nav__navbar} ${styles["nav__menu--visibility"]}`;
   }
 
+  function changeLanguage(selectedOption: any) {
+    i18n.changeLanguage(Language[selectedOption.value]);
+  }
+
   return (
     <nav className={styles.nav}>
       <div className={styles.nav__header}>
         <Link to="/main" className={styles.nav__logo}>
           <NavbarLogo />
         </Link>
-        <Link to="/main">Wizualizacja danych</Link>
+        <Link to="/main">{t("navbar.title")}</Link>
       </div>
 
       <ul className={navbarStyle}>
         <li>
-          <a href="/#"> Pokaż wszystkie dane </a>
+          <a href="/#">{t("navbar.showAllDataMenu")} </a>
         </li>
         <li>
-          <a href="/#"> Dodaj dane </a>
+          <a href="/#">{t("navbar.addDataMenu")} </a>
         </li>
+        <Select
+          className="language-selector-container"
+          classNamePrefix="language-selector"
+          styles={{
+            control: (base) => ({
+              ...base,
+              boxShadow: "none",
+              borderColor: "white",
+              "&:hover": {
+                borderColor: "white",
+              },
+            }),
+            option: (base) => ({
+              ...base,
+              backgroundColor: "white",
+              color: "black",
+              
+              "&:hover": {
+                backgroundColor: "#cbe4de",
+                color: "black",
+              },
+            }),
+          }}
+          defaultValue={languageOptions[indexOfLastPickedLanguage]}
+          value={languageOptions[indexOfLastPickedLanguage]}
+          onChange={changeLanguage}
+          name="language"
+          options={languageOptions}
+        />
       </ul>
 
       <div
