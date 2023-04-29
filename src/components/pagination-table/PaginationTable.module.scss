@@ -1,0 +1,93 @@
+@use "../../styles/variables" as *;
+
+tr {
+  text-align: center;
+}
+
+.pagination-table {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  margin: 30px;
+
+  &__data__number__selector {
+    width: 150px;
+    justify-self: end;
+  }
+
+  &__table {
+    border-collapse: collapse;
+
+    &--header-cell {
+      background-color: $color-light-turquoise;
+      padding: 6px;
+
+      &:first-child {
+        border-radius: 1em 0 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 1em 0 0;
+      }
+    }
+  }
+
+  &__row-even {
+    background-color: $color-white;
+  }
+
+  &__row-odd {
+    background-color: $color-light-gray;
+  }
+
+  &__cell--id {
+    width: 5%;
+  }
+
+  &__cell--name {
+    width: 10%;
+  }
+
+  &__cell--age {
+    width: 5%;
+  }
+
+  &__cell--age {
+    width: 5%;
+  }
+
+  &__cell--birth-date {
+    width: 20%;
+  }
+
+  &__cell--biography {
+    width: 50%;
+  }
+
+  &__cell--action {
+    width: 10%;
+  }
+
+  &__footer {
+    background-color: $color-light-turquoise;
+
+    &--cell-left {
+      &:first-child {
+        border-radius: 0 0 0 1em;
+      }
+    }
+
+    &--cell-right {
+      &:last-child {
+        border-radius: 0 0 1em 0;
+      }
+    }
+
+    &--actions {
+      display: grid;
+      grid-template-columns: 15% 8%;
+      column-gap: 5px;
+      align-items: center;
+    }
+  }
+}

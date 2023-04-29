@@ -7,5 +7,27 @@
             "en": "Angielski",
             "pl": "Polski"
         }
+    },
+
+    "table": {
+        "selectNumberOfPeopleOnPage": "{{number}} osób",
+        "header": {
+            "personNumber": "Nr.",
+            "personName": "Imię",
+            "personAge": "Wiek",
+            "personBirthDate": "Data urodzenia",
+            "personBiography": "Życiorys",
+            "personAction": "Akcja"
+        },
+        "footer": {
+            "selectedRows": "{{rowsNumber}} wybrano"
+        },
+        "action": {
+            "edit": "Edycja",
+            "delete": "Usuń"
+        },
+        "bar" : {
+            "jumpToPage": "Idź do strony"
+        }
     }
 }

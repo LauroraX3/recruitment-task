@@ -7,5 +7,26 @@
             "en": "English",
             "pl": "Polish"
         }
+    },
+    "table": {
+        "selectNumberOfPeopleOnPage": "{{number}} persons",
+        "header": {
+            "personNumber": "No.",
+            "personName": "Name",
+            "personAge": "Age",
+            "personBirthDate": "Date of birth",
+            "personBiography": "Biography",
+            "personAction": "Action"
+        },
+        "footer": {
+            "selectedRows": "{{rowsNumber}} selected"
+        },
+        "action": {
+            "edit": "Edit",
+            "delete": "Delete"
+        },
+        "bar" : {
+            "jumpToPage": "Go to page"
+        }
     }
 }
