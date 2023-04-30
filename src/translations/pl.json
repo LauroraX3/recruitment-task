@@ -29,5 +29,16 @@
         "bar" : {
             "jumpToPage": "Idź do strony"
         }
+    },
+    "form": {
+        "enterPersonName": "Podaj imię",
+        "enterPersonAge": "Podaj wiek",
+        "enterPersonBirthDate": "Podaj datę urodzenia",
+        "enterPersonBiography": "Podaj życiorys",
+        "personName": "Imię",
+        "personAge": "Wiek",
+        "personBirthDate": "Data urodzenia",
+        "personBiography": "Życiorys",
+        "addPersonData": "Dodaj"
     }
 }

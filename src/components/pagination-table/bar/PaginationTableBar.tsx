@@ -79,7 +79,7 @@ const PaginationTableBar = ({ table }: PaginationTableBarProps) => {
         />
       </IconButton>
       <TextField
-        className={`${styles["pagination-bar__jump--to-input"]}`}
+    
         type="number"
         variant="outlined"
         label={t("table.bar.jumpToPage")}

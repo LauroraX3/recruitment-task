@@ -61,11 +61,14 @@ tr {
   }
 
   &__cell--biography {
-    width: 50%;
+    width: 48%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100px;
   }
 
   &__cell--action {
-    width: 10%;
+    width: 12%;
   }
 
   &__footer {

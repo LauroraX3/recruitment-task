@@ -1,0 +1,13 @@
+@import "../../../styles/variables";
+
+.person-form {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__form {
+    display: grid;
+    gap: 1rem;
+  }
+}

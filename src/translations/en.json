@@ -28,5 +28,12 @@
         "bar" : {
             "jumpToPage": "Go to page"
         }
+    },
+    "form": {
+        "enterPersonName": "Enter name",
+        "enterPersonAge": "Enter age",
+        "enterPersonBirthDate": "Enter birth date",
+        "enterPersonBiography": "Enter biography",
+        "addPersonData": "Add"
     }
 }

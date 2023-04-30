@@ -9,12 +9,15 @@ import { useTranslation } from "react-i18next";
 import { ThemeProvider } from "@emotion/react";
 import buttonThemes from "../../../themes/mui-button-themes";
 import Person from "../../../models/Person";
+import PersonForm from "../../../components/pagination-table/person-form/PersonForm";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../store/Store";
+import { deletePerson } from "../../../reducers/PersonReducer";
 
 const Home = () => {
+  const dispatch: AppDispatch = useDispatch();
+  const tableData = useSelector((state: RootState) => state.person.data);
   const [t] = useTranslation();
-  const [tableData, setTableData] = React.useState(
-    React.useMemo(() => personsJson, [])
-  );
 
   const tableColumns = [
     {
@@ -59,16 +62,19 @@ const Home = () => {
       header: t("table.header.personBirthDate"),
       accessorKey: "birth_date",
       footer: (props: any) => props.column.id,
-      cell: (value: any) => {
-        return moment(value.getValue()).format("DD/MM/YYYY");
-      },
     },
     {
       header: t("table.header.personBiography"),
       accessorKey: "biography",
       footer: (props: any) => props.column.id,
       cell: (value: any) => {
-        return `${value.getValue().slice(0, 250)}...`;
+        const biography = value.getValue();
+
+        if (!biography) {
+          return "-";
+        }
+
+        return biography;
       },
     },
     {
@@ -85,7 +91,7 @@ const Home = () => {
               <Button
                 variant="contained"
                 color="darkTurquoise"
-                onClick={() => deleteRows([value.row.index])}
+                onClick={() => dispatch(deletePerson([value.row.index]))}
               >
                 {t("table.action.delete")}
               </Button>
@@ -96,31 +102,14 @@ const Home = () => {
     },
   ];
 
-  function deleteRows(rowsIndex: number[]): void {
-    var dataCopy: Person[] = [...tableData];
-
-    const rowsIndexLength = rowsIndex.length;
-    if (rowsIndexLength < 0) {
-      return;
-    }
-
-    if (rowsIndex.length === 1) {
-      dataCopy.splice(rowsIndex[0], 1);
-    } else {
-      dataCopy = dataCopy.filter(
-        (row, index) => !rowsIndex.find((rowIndex) => rowIndex === index)
-      );
-    }
-
-    setTableData(dataCopy);
-  }
-
   return (
-    <PaginationTable
-      columns={tableColumns}
-      data={tableData}
-      deleteRows={deleteRows}
-    ></PaginationTable>
+    <ThemeProvider theme={buttonThemes}>
+      <PaginationTable
+        columns={tableColumns}
+        data={tableData}
+      ></PaginationTable>
+      <PersonForm></PersonForm>
+    </ThemeProvider>
   );
 };
 
