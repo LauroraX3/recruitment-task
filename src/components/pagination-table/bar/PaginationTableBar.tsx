@@ -1,4 +1,4 @@
-import { IconButton, InputAdornment, TextField } from "@mui/material";
+import { IconButton, InputAdornment } from "@mui/material";
 import {
   MdArrowBackIosNew,
   MdArrowForwardIos,
@@ -79,35 +79,6 @@ const PaginationTableBar = ({ table }: PaginationTableBarProps) => {
           className={`${styles["pagination-bar__icon--multiple"]}`}
         />
       </IconButton>
-      <DarkTurquoiseTextField
-        type="number"
-        variant="outlined"
-        label={t("table.bar.jumpToPage")}
-        InputLabelProps={{
-          shrink: true,
-        }}
-        onChange={(e) => setPageNumber(Number(e.target.value))}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <IconButton
-                edge="end"
-                onClick={() => {
-                  if (pageNumber < 0) {
-                    table.setPageIndex(0);
-                  } else if (pageNumber > table.getPageCount()) {
-                    table.setPageIndex(table.getPageCount() - 1);
-                  } else {
-                    table.setPageIndex(pageNumber - 1);
-                  }
-                }}
-              >
-                <MdArrowForwardIos className={`${styles["icon"]}`} />
-              </IconButton>
-            </InputAdornment>
-          ),
-        }}
-      ></DarkTurquoiseTextField>
     </div>
   );
 };

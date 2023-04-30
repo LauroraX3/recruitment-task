@@ -9,10 +9,15 @@ import PersonForm from "../../../components/pagination-table/person-form/PersonF
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../store/Store";
 import { deletePerson } from "../../../reducers/PersonReducer";
+import { useState } from "react";
+import Person from "../../../models/Person";
 
 const Home = () => {
   const dispatch: AppDispatch = useDispatch();
   const tableData = useSelector((state: RootState) => state.person.data);
+  const [pickedPersonIndex, setPickedPersonIndex] = useState<
+    number | undefined
+  >();
   const [t] = useTranslation();
 
   const tableColumns = [
@@ -81,7 +86,11 @@ const Home = () => {
         return (
           <ThemeProvider theme={buttonThemes}>
             <div className={styles["pagination-table__actions"]}>
-              <Button variant="contained" color="darkTurquoise">
+              <Button
+                variant="contained"
+                color="darkTurquoise"
+                onClick={() => setPickedPersonIndex(value.row.id)}
+              >
                 {t("table.action.edit")}
               </Button>
               <Button
@@ -104,7 +113,7 @@ const Home = () => {
         columns={tableColumns}
         data={tableData}
       ></PaginationTable>
-      <PersonForm></PersonForm>
+      <PersonForm person={pickedPersonIndex !== undefined ? tableData[pickedPersonIndex] : undefined}></PersonForm>
     </ThemeProvider>
   );
 };

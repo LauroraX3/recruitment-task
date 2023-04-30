@@ -21,13 +21,6 @@ interface FormData {
   biography: string;
 }
 
-const initialValues: FormData = {
-  name: "",
-  age: 1,
-  birthDate: null,
-  biography: "",
-};
-
 let personSchema = object({
   name: string().required(),
   age: number().min(1).required().positive().integer(),
@@ -35,9 +28,21 @@ let personSchema = object({
   biography: string().max(250).nullable(),
 });
 
-const PersonForm = () => {
+interface PersonFormProps {
+  person: Person | undefined;
+}
+
+const PersonForm = ({ person }: PersonFormProps) => {
   const dispatch: AppDispatch = useDispatch();
   const [t] = useTranslation();
+
+  let initialValues: FormData = {
+    name: person?.name === undefined ? "" : person?.name,
+    age: person?.age === undefined ? 1 : person?.age,
+    birthDate:
+      person?.birth_date === undefined ? null : new Date(person?.birth_date),
+    biography: person?.biography === undefined ? "" : person?.biography,
+  };
 
   return (
     <div className={`${styles["person-form"]}`}>
@@ -58,8 +63,6 @@ const PersonForm = () => {
       >
         {({ values, setFieldValue, errors, touched }) => (
           <Form className={`${styles["person-form__form"]}`}>
-            <InputLabel htmlFor={"name"}>dsds</InputLabel>
-
             <DarkTurquoiseTextField
               id="name"
               variant="outlined"
@@ -112,10 +115,10 @@ const PersonForm = () => {
                       },
                     },
                     error: touched.birthDate && !!errors.birthDate,
-                    helperText: errors.birthDate === undefined ? '' : `${
-                      touched.birthDate &&
-                      errors.birthDate
-                    }`,
+                    helperText:
+                      errors.birthDate === undefined
+                        ? ""
+                        : `${touched.birthDate && errors.birthDate}`,
                     placeholder: "DD/MM/YYYY",
                     InputLabelProps: { shrink: true },
                   },
