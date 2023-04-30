@@ -7,14 +7,17 @@
   justify-content: space-between;
   background-color: $color-light-turquoise;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
   @include desktop-breakpoint {
     padding: 0px 70px 5px;
     font-size: 1.4rem;
   }
+
   @include tablet-breakpoint {
     padding: 0px 40px 5px;
     font-size: 1.3rem;
   }
+
   @include mobile-breakpoint {
     padding: 0px 10px 5px;
     font-size: 1.2rem;
@@ -74,6 +77,7 @@
       align-items: flex-start;
       justify-content: flex-start;
       position: fixed;
+      z-index: 999;
       top: 60px;
       width: 300px;
       height: 100vh;
