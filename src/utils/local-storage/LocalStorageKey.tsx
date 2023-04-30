@@ -1,6 +1,6 @@
 class LocalStorageKey {
-    static persons = "persons"
+    static persons = "persons";
 }
 
-export default LocalStorageKey
+export default LocalStorageKey;
 

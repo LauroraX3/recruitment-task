@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./DataGrid.module.scss";
 import { splitArray } from "../../utils/array-utils/ArrayUtils";
 
@@ -11,7 +10,6 @@ const itemsInRow = 4;
 
 function DataGrid<T>({ data, renderItem }: DataGridProps<T>) {
   const splittedData = splitArray(data, itemsInRow);
-  //console.log(splittedData)
 
   return (
     <>
@@ -26,14 +24,6 @@ function DataGrid<T>({ data, renderItem }: DataGridProps<T>) {
               </div>
             );
           }
-
-          //   (index + 1) % 4 === 0 ? (
-          //     <div key={index} className={`${styles["data-grid__row"]}`}>
-          //       {renderItems(item, index)}
-          //     </div>
-          //   ) : (
-          //     renderItems(item, index)
-          //   )
         )}
       </div>
     </>

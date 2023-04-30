@@ -34,6 +34,11 @@
         "enterPersonAge": "Enter age",
         "enterPersonBirthDate": "Enter birth date",
         "enterPersonBiography": "Enter biography",
+        "personName": "Name",
+        "personAge": "Age",
+        "personBirthDate": "Birth Date",
+        "personBiography": "Biography",
         "addPersonData": "Add"
-    }
+    },
+    "notFound": "page not found"
 }

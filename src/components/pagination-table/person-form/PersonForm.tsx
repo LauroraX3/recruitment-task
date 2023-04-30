@@ -1,14 +1,11 @@
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import { date, number, object, string } from "yup";
 import styles from "./PersonForm.module.scss";
 import { useTranslation } from "react-i18next";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { ErrorMessage, Field, Form, Formik, useFormik } from "formik";
+import { Form, Formik } from "formik";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import TextareaAutosize from "@mui/material/TextareaAutosize";
-import { FormControl, InputLabel, OutlinedInput } from "@mui/material";
+import { InputLabel } from "@mui/material";
 import DarkTurquoiseTextField from "../../../themes/mui-textfield-themes";
 import { MobileDatePicker } from "@mui/x-date-pickers";
 import { useDispatch } from "react-redux";
@@ -115,7 +112,10 @@ const PersonForm = () => {
                       },
                     },
                     error: touched.birthDate && !!errors.birthDate,
-                    helperText: `${touched.birthDate && errors.birthDate}`,
+                    helperText: errors.birthDate === undefined ? '' : `${
+                      touched.birthDate &&
+                      errors.birthDate
+                    }`,
                     placeholder: "DD/MM/YYYY",
                     InputLabelProps: { shrink: true },
                   },

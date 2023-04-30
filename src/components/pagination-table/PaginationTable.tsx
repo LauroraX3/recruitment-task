@@ -11,8 +11,6 @@ import styles from "./PaginationTable.module.scss";
 import Button from "@mui/material/Button";
 import PaginationTableSelectionCheckbox from "./selection-checkbox/PaginationTableSelectionCheckbox";
 import PaginationTableBar from "./bar/PaginationTableBar";
-import ThemeProvider from "@mui/material/styles/ThemeProvider";
-import buttonThemes from "../../themes/mui-button-themes";
 import Person from "../../models/Person";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";

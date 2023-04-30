@@ -40,5 +40,6 @@
         "personBirthDate": "Data urodzenia",
         "personBiography": "Życiorys",
         "addPersonData": "Dodaj"
-    }
+    },
+    "notFound": "nie znaleziono podanej strony"
 }

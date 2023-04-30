@@ -11,6 +11,7 @@ import { useState } from "react";
 import styles from "./PaginationTableBar.module.scss";
 import { useTranslation } from "react-i18next";
 import Person from "../../../models/Person";
+import DarkTurquoiseTextField from "../../../themes/mui-textfield-themes";
 
 interface PaginationTableBarProps {
   table: Table<Person>;
@@ -78,8 +79,7 @@ const PaginationTableBar = ({ table }: PaginationTableBarProps) => {
           className={`${styles["pagination-bar__icon--multiple"]}`}
         />
       </IconButton>
-      <TextField
-    
+      <DarkTurquoiseTextField
         type="number"
         variant="outlined"
         label={t("table.bar.jumpToPage")}
@@ -107,7 +107,7 @@ const PaginationTableBar = ({ table }: PaginationTableBarProps) => {
             </InputAdornment>
           ),
         }}
-      ></TextField>
+      ></DarkTurquoiseTextField>
     </div>
   );
 };

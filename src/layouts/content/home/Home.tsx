@@ -1,14 +1,10 @@
-import moment from "moment";
 import PaginationTable from "../../../components/pagination-table/PaginationTable";
-import personsJson from "./data.json";
 import PaginationTableSelectionCheckbox from "../../../components/pagination-table/selection-checkbox/PaginationTableSelectionCheckbox";
-import React from "react";
 import styles from "./Home.module.scss";
 import { Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { ThemeProvider } from "@emotion/react";
 import buttonThemes from "../../../themes/mui-button-themes";
-import Person from "../../../models/Person";
 import PersonForm from "../../../components/pagination-table/person-form/PersonForm";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../store/Store";
@@ -71,7 +67,7 @@ const Home = () => {
         const biography = value.getValue();
 
         if (!biography) {
-          return "-";
+          return "–";
         }
 
         return biography;

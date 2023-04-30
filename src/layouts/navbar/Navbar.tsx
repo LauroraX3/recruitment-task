@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import styles from "./Navbar.module.scss";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Select from "react-select";
 import Language from "../../enums/Language";
@@ -75,9 +75,6 @@ const Navbar = () => {
       <ul className={navbarStyle}>
         <li>
           <a href="/views">{t("navbar.showAllDataMenu")} </a>
-        </li>
-        <li>
-          <a href="/#">{t("navbar.addDataMenu")} </a>
         </li>
         <Select
           className="language-selector-container"
