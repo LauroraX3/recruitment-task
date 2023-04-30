@@ -74,7 +74,7 @@ const Navbar = () => {
 
       <ul className={navbarStyle}>
         <li>
-          <a href="/#">{t("navbar.showAllDataMenu")} </a>
+          <a href="/views">{t("navbar.showAllDataMenu")} </a>
         </li>
         <li>
           <a href="/#">{t("navbar.addDataMenu")} </a>
@@ -95,7 +95,7 @@ const Navbar = () => {
               ...base,
               backgroundColor: "white",
               color: "black",
-              
+
               "&:hover": {
                 backgroundColor: "#cbe4de",
                 color: "black",
